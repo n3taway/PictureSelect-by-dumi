@@ -1,2 +1,3 @@
-# PictureSelect-by-dumi
-通过图片选择组件上手dumi
+# PictureSelect 图片选择组件
+
+> 组件开发基于[dumi](https://d.umijs.org/)
