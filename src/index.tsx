@@ -9,9 +9,9 @@ type PicturesItem = {
 };
 
 type PictureSelectProps = {
-  pictures: PicturesItem;
+  pictures: PicturesItem[];
   value: PicturesItem['id'][];
-  onChange: (id: PicturesItem['id'][]) => {};
+  onChange?: (id: PicturesItem['id'][]) => {};
 };
 
 function PictureSelect(props: PictureSelectProps) {
@@ -39,7 +39,12 @@ function PictureSelect(props: PictureSelectProps) {
     <div className="picture-select-wrapper">
       <div>
         <p>
-          <input type="checkbox" onChange={selectAll} checked={selectedAll} />
+          <input
+            type="checkbox"
+            onChange={selectAll}
+            checked={selectedAll}
+            className="select-all-input"
+          />
           已选中{value.length}个
         </p>
       </div>
@@ -58,6 +63,9 @@ function PictureSelect(props: PictureSelectProps) {
                 type="checkbox"
                 checked={value.includes(item.id)}
                 onChange={() => handleClick(item.id)}
+                className={`input-checkbox ${
+                  value.includes(item.id) ? 'input-checkbox-checked' : ''
+                }`}
               />
             </div>
           );
